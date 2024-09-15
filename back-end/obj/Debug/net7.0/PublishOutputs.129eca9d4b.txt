@@ -1,0 +1,52 @@
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\FS React.Net.exe
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\appsettings.Development.json
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\appsettings.json
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\package-lock.json
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\package.json
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\FS React.Net.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\FS React.Net.runtimeconfig.json
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\FS React.Net.pdb
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Azure.Core.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Azure.Identity.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.Data.SqlClient.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.EntityFrameworkCore.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.Identity.Client.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.IdentityModel.Logging.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.OpenApi.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.SqlServer.Server.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Microsoft.Win32.SystemEvents.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\System.Configuration.ConfigurationManager.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\System.Drawing.Common.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\System.Memory.Data.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\System.Runtime.Caching.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\System.Security.Permissions.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\System.Windows.Extensions.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Filipe\Desktop\Mateus\Programação\Exercícios Programação\C#\Estudos extras\FS React.Net\back-end\bin\Debug\net7.0\publish\FS React.Net.deps.json
