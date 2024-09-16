@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using FS_React_Net.DTO;
 
 namespace FS_React_Net.Models
 {
@@ -13,8 +15,8 @@ namespace FS_React_Net.Models
         public string PhoneNumber { get; set; }
         [Required]
         public bool Active { get; set; }
-        public int GroupId { get; set; }
+        [JsonIgnore]
         public Group Group { get; set; }
-        
+        public int GroupId { get; set; }
     }
 }

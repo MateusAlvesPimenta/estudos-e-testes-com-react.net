@@ -22,7 +22,7 @@ namespace FS_React_Net.Controllers
         {
             var contacts = await _contactService.GetContacts();
 
-            if(contacts.Count() == 0)
+            if(!contacts.Any())
             {
                 return NotFound("No contact found");
             }
@@ -35,7 +35,7 @@ namespace FS_React_Net.Controllers
         {
             var contacts = await _contactService.GetContactsByName(name);
 
-            if(contacts.Count() == 0)
+            if(!contacts.Any())
             {
                 return NotFound($"No contact with name = {name} found");
             }
@@ -46,7 +46,7 @@ namespace FS_React_Net.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetContactById(int id)
         {
-            var contact = await _contactService.GetContactsById(id);
+            var contact = await _contactService.GetContactById(id);
 
             if(contact == null)
             {
@@ -73,13 +73,13 @@ namespace FS_React_Net.Controllers
                 return Ok($"Contact with id = {id} successfully updated");
             }
 
-            return BadRequest("inconsistent data");
+            return BadRequest("Divergent data");
         }
 
         [HttpDelete("DeleteContact/{id}")]
         public async Task<IActionResult> DeleteContact(int id)
         {
-            var contact = await _contactService.GetContactsById(id);
+            var contact = await _contactService.GetContactById(id);
 
             if(contact == null)
             {

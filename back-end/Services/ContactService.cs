@@ -12,19 +12,19 @@ namespace FS_React_Net.Services
         {
             _context = context;
         }
-        public async Task<IEnumerable<Contact>> GetContacts()
+        public async Task<List<Contact>> GetContacts()
         {
             return await _context.Contacts.ToListAsync();
         }
 
-        public async Task<Contact> GetContactsById(int id)
+        public async Task<Contact> GetContactById(int id)
         {
             var contact = await _context.Contacts.FindAsync(id);
 
             return contact;
         }
 
-        public async Task<IEnumerable<Contact>> GetContactsByName(string name)
+        public async Task<List<Contact>> GetContactsByName(string name)
         {
             if(!String.IsNullOrWhiteSpace(name))
             {
@@ -40,10 +40,12 @@ namespace FS_React_Net.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateContact(Contact contact)
+        public async Task<bool> UpdateContact(Contact contact)
         {
             _context.Entry(contact).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+
+            return true;
         }
 
         public async Task DeleteContact(Contact contact)
