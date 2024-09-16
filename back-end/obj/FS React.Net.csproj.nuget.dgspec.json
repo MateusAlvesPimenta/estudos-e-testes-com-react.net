@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\C#\\Estudos extras\\FS React.Net\\back-end\\FS React.Net.csproj": {}
+    "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\CSharp\\Estudos extras\\FS React.Net\\back-end\\FS React.Net.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\C#\\Estudos extras\\FS React.Net\\back-end\\FS React.Net.csproj": {
+    "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\CSharp\\Estudos extras\\FS React.Net\\back-end\\FS React.Net.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\C#\\Estudos extras\\FS React.Net\\back-end\\FS React.Net.csproj",
+        "projectUniqueName": "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\CSharp\\Estudos extras\\FS React.Net\\back-end\\FS React.Net.csproj",
         "projectName": "FS React.Net",
-        "projectPath": "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\C#\\Estudos extras\\FS React.Net\\back-end\\FS React.Net.csproj",
+        "projectPath": "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\CSharp\\Estudos extras\\FS React.Net\\back-end\\FS React.Net.csproj",
         "packagesPath": "C:\\Users\\Filipe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\C#\\Estudos extras\\FS React.Net\\back-end\\obj\\",
+        "outputPath": "C:\\Users\\Filipe\\Desktop\\Mateus\\Programação\\Exercícios Programação\\CSharp\\Estudos extras\\FS React.Net\\back-end\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Filipe\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -68,24 +68,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[7.0.0, 7.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
-              "version": "[7.0.0, 7.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[7.0.0, 7.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[7.0.0, 7.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -95,11 +77,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     }

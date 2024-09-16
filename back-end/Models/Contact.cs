@@ -13,5 +13,8 @@ namespace FS_React_Net.Models
         public string PhoneNumber { get; set; }
         [Required]
         public bool Active { get; set; }
+        public int GroupId { get; set; }
+        public Group Group { get; set; }
+        
     }
 }
