@@ -8,7 +8,7 @@ namespace FS_React_Net.Services
         Task<List<Group>> GetGroups();
         Task<Group> GetGroupById(int id);
         Task<List<Group>> GetGroupsByName(string groupName);
-        Task<Group> CreateGroup(GroupCreateDTO groupDTO);
+        Task CreateGroup(GroupCreateDTO groupDTO);
         Task<bool> UpdateGroup(Group group);
         Task DeleteGroup(Group group);
     }
