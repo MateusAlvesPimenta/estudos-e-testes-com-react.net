@@ -19,6 +19,8 @@ namespace FS_React_Net.Models
             Contacts.Add(contact);
         }
 
+        public Group() { }
+
         public void AddContact(Contact contact)
         {
             Contacts.Add(contact);
@@ -28,7 +30,5 @@ namespace FS_React_Net.Models
         {
             Contacts.Remove(contact);
         }
-
-        public Group() { }
     }
 }
