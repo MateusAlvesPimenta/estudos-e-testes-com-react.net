@@ -6,7 +6,7 @@ using FS_React_Net.DTO;
 using FS_React_Net.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FS_React_Net.Context
+namespace FS_React_Net.Controllers
 {
     [ApiController]
     [Route("Controller")]
@@ -26,7 +26,7 @@ namespace FS_React_Net.Context
 
             if (group == null)
             {
-                return NotFound($"Can't find any contact with id = {id}");
+                return NotFound($"Can't find any group with id = {id}");
             }
 
             return Ok(group);

@@ -6,9 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<ContactContext>(options =>{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(
+        builder.
+        Configuration.
+        GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<IContactService, ContactService>();
 
 builder.Services.AddControllers();
