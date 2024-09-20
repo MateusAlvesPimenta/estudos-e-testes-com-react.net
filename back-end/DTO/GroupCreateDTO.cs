@@ -13,6 +13,9 @@ namespace FS_React_Net.DTO
         [StringLength(100)]
         public string GroupName { get; set; }
         [Required]
+        [StringLength(100)]
+        public string GroupDescription { get; set; }
+        [Required]
         public int ContactId { get; set; }
     }
 }

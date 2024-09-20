@@ -17,6 +17,20 @@ namespace FS_React_Net.Models
         public bool Active { get; set; }
         [JsonIgnore]
         public Group Group { get; set; }
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
+
+        public Contact(){}
+        public Contact(ContactDTO contactDTO)
+        {
+            Name = contactDTO.Name;
+            PhoneNumber = contactDTO.PhoneNumber;
+            Active = contactDTO.Active;
+        }
+        public void UpdateContact(ContactDTO contactDTO)
+        {
+            Name = contactDTO.Name;
+            PhoneNumber = contactDTO.PhoneNumber;
+            Active = contactDTO.Active;
+        }
     }
 }

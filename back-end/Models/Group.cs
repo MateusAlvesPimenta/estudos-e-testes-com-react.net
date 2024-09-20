@@ -10,12 +10,16 @@ namespace FS_React_Net.Models
         [Required]
         [StringLength(100)]
         public string GroupName { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string GroupDescription { get; set; }
         public List<Contact> Contacts { get; set; } = new List<Contact>();
 
         public Group(GroupCreateDTO groupCreateDTO, Contact contact)
         {
             Id = groupCreateDTO.Id;
             GroupName = groupCreateDTO.GroupName;
+            GroupDescription = groupCreateDTO.GroupDescription;
             Contacts.Add(contact);
         }
 
@@ -26,9 +30,15 @@ namespace FS_React_Net.Models
             Contacts.Add(contact);
         }
 
-        public void RemoveContact(Contact contact)
+        public bool RemoveContact(Contact contact)
         {
-            Contacts.Remove(contact);
+            return Contacts.Remove(contact);
+        }
+
+        public void UpdateGroup(GroupUpdateDTO groupDTO)
+        {
+            GroupName = groupDTO.GroupName;
+            GroupDescription = groupDTO.GroupDescription;
         }
     }
 }
