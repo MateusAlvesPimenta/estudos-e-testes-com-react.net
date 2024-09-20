@@ -16,7 +16,8 @@ namespace FS_React_Net.Context
             modelBuilder.Entity<Contact>()
                 .HasOne(contact => contact.Group)
                 .WithMany(group => group.Contacts)
-                .HasForeignKey(contact => contact.GroupId);
+                .HasForeignKey(contact => contact.GroupId)
+                .IsRequired(false);
 
             base.OnModelCreating(modelBuilder);
         }

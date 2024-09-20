@@ -1,4 +1,6 @@
+using System.ComponentModel.DataAnnotations;
 using FS_React_Net.Context;
+using FS_React_Net.DTO;
 using FS_React_Net.Models;
 using FS_React_Net.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +33,7 @@ namespace FS_React_Net.Controllers
         }
 
         [HttpGet("GetContactsByName/{name}")]
-        public async Task<IActionResult> GetContactsByName(string name)
+        public async Task<IActionResult> GetContactsByName([Required]string name)
         {
             var contacts = await _contactService.GetContactsByName(name);
 
@@ -43,7 +45,7 @@ namespace FS_React_Net.Controllers
             return Ok(contacts);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetContactById/{id}")]
         public async Task<IActionResult> GetContactById(int id)
         {
             var contact = await _contactService.GetContactById(id);
@@ -57,23 +59,25 @@ namespace FS_React_Net.Controllers
         }
 
         [HttpPost("NewContact")]
-        public async Task<IActionResult> CreateContact(Contact contact)
+        public async Task<IActionResult> CreateContact(ContactDTO contactDTO)
         {
-            await _contactService.CreateContact(contact);
+            await _contactService.CreateContact(contactDTO);
 
-            return CreatedAtAction(nameof(GetContactById), new {id = contact.Id}, contact);
+            return CreatedAtAction(nameof(GetContactById), new {id = contactDTO.Id}, contactDTO);
         }
 
-        [HttpPut("EditContact/{id}")]
-        public async Task<IActionResult> UpdateContact(int id, Contact contact)
+        [HttpPut("UpdateContact/{id}")]
+        public async Task<IActionResult> UpdateContact(int id, ContactDTO contactDTO)
         {
-            if(id == contact.Id)
+            contactDTO.Id = id;
+            var updated = await _contactService.UpdateContact(contactDTO);
+
+            if(!updated)
             {
-                await _contactService.UpdateContact(contact);
-                return Ok($"Contact with id = {id} successfully updated");
+                return NotFound($"No Contact with id = {id} found");
             }
 
-            return BadRequest("Divergent data");
+            return Ok($"Contact with id = {id} successfully updated");
         }
 
         [HttpDelete("DeleteContact/{id}")]

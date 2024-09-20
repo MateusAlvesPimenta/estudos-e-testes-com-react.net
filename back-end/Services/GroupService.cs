@@ -20,29 +20,34 @@ namespace FS_React_Net.Services
 
         public async Task<List<Group>> GetGroups()
         {
-            return await _context.Groups.ToListAsync();
+            var groups = await _context.Groups.ToListAsync();
+            return groups;
         }
 
         public async Task<Group> GetGroupById(int id)
         {
-            return await _context.Groups
+            var group = await _context.Groups
                             .Where(group => group.Id == id)
                             .Include(group => group.Contacts)
                             .FirstOrDefaultAsync();
+
+            return group;
         }
 
         public async Task<List<Group>> GetGroupsByName(string groupName)
         {
-            return await _context.Groups.
-                            Where(group => group.GroupName.Contains(groupName))
-                            .ToListAsync();
+            var groups = await _context.Groups.
+                                    Where(group => group.GroupName.Contains(groupName))
+                                    .ToListAsync();
+
+            return groups;
         }
 
         public async Task<Group> CreateGroup(GroupCreateDTO groupDTO)
         {
             var contact = await _context.Contacts.FindAsync(groupDTO.ContactId);
 
-            if(contact == null)
+            if(contact == null || contact.GroupId != null)
             {
                 return null;
             }
@@ -55,12 +60,21 @@ namespace FS_React_Net.Services
             return newGroup;
         }
 
-        public async Task UpdateGroupName(GroupUpdateDTO groupDTO)
+        public async Task<bool> UpdateGroup(GroupUpdateDTO groupDTO)
         {
             var group = await _context.Groups.FindAsync(groupDTO.Id);
 
+            if(group == null)
+            {
+                return false;
+            }
+
+            group.UpdateGroup(groupDTO);
+
             _context.Entry(group).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+
+            return true;
         }
 
         public async Task DeleteGroup(Group group)
@@ -91,9 +105,23 @@ namespace FS_React_Net.Services
             return "added";
         }
 
-        // public async Task<bool> RemoveContact(int id, int groupId)
-        // {
-        //     throw new NotImplementedException();
-        // }
+        public async Task<(bool, bool)> RemoveContact(int contactId, int groupId)
+        {
+            var contact = await _context.Contacts.FindAsync(contactId);
+            var group = await _context.Groups.FindAsync(groupId);
+
+            if(contact == null || group == null)
+            {
+                return (false, false);
+
+            }
+
+            var removed = group.RemoveContact(contact);
+
+            _context.Groups.Entry(group).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return (true, removed);
+        }
     }
 }

@@ -27,11 +27,11 @@ Nele eu vou adaptar alguns códigos antigos meus, melhorar-los e também adicion
 * ✔️ - Feito.
 
 
-* Criar novas entidades e relacionamentos.⚙️
-1. Definir quais serão as novas entidades e seus relacionamentos.⚙️
-2. Preparar o ambiente.⚙️
-3. Criar os serviços e controllers para as novas entidades.🛠️
-4. Deixar tudo pronto para ser implementado no Front-end.🛠️
+* Criar novas entidades e relacionamentos.✔️
+1. Definir quais serão as novas entidades e seus relacionamentos.✔️
+2. Preparar o ambiente.✔️
+3. Criar os serviços e controllers para as novas entidades.✔️
+4. Deixar tudo pronto para ser implementado no Front-end.✔️
 
 * Implementar todas as mudanças no Front-end.🛠️
 1. Consertar, organizar e dividir o código em modulos e organizar-los para ampliar o projeto.🛠️

@@ -12,8 +12,8 @@ builder.Services.AddDbContext<ContactContext>(options =>{
         GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddScoped<IGroupService, GroupService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

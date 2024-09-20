@@ -1,4 +1,5 @@
 using FS_React_Net.Context;
+using FS_React_Net.DTO;
 using FS_React_Net.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,8 @@ namespace FS_React_Net.Services
         }
         public async Task<List<Contact>> GetContacts()
         {
-            return await _context.Contacts.ToListAsync();
+            var contacts = await _context.Contacts.ToListAsync();
+            return contacts;
         }
 
         public async Task<Contact> GetContactById(int id)
@@ -26,22 +28,31 @@ namespace FS_React_Net.Services
 
         public async Task<List<Contact>> GetContactsByName(string name)
         {
-            if(!String.IsNullOrWhiteSpace(name))
-            {
-                var contacts = await _context.Contacts.Where(x => x.Name.Contains(name)).ToListAsync();
-                return contacts;
-            }
-            return await GetContacts();
+            var contacts = await _context.Contacts
+                                    .Where(x => x.Name.Contains(name))
+                                    .ToListAsync();
+            return contacts;
         }
 
-        public async Task CreateContact(Contact contact)
+        public async Task CreateContact(ContactDTO contactDTO)
         {
+            var contact = new Contact(contactDTO);
+            
             _context.Contacts.Add(contact);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> UpdateContact(Contact contact)
+        public async Task<bool> UpdateContact(ContactDTO contactDTO)
         {
+            var contact = await _context.Contacts.FindAsync(contactDTO.Id);
+
+            if(contact == null)
+            {
+                return false;
+            }
+
+            contact.UpdateContact(contactDTO);
+
             _context.Entry(contact).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 

@@ -9,9 +9,9 @@ namespace FS_React_Net.Services
         Task<Group> GetGroupById(int id);
         Task<List<Group>> GetGroupsByName(string groupName);
         Task<Group> CreateGroup(GroupCreateDTO groupDTO);
-        Task UpdateGroupName(GroupUpdateDTO groupDTO);
-        Task<string> AddContact(int contactId, int groupId);
-        // Task<bool> RemoveContact(int id, int groupId);
+        Task<bool> UpdateGroup(GroupUpdateDTO groupDTO);
         Task DeleteGroup(Group group);
+        Task<string> AddContact(int contactId, int groupId);
+        Task<(bool, bool)> RemoveContact(int contactId, int groupId);
     }
 }
