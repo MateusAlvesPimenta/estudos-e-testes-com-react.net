@@ -12,7 +12,9 @@ Nele eu vou adaptar alguns códigos antigos meus, melhorar-los e também adicion
 
 * Back-end.
 1. Necessário .Net 7 instalado e funcionando.
-2. Abrir um CMD na pasta "back-end" e digitar o seguinte comando `dotnet run`
+2. Alterar a "ConnectionString" conforme necessário para que utilize seu banco de dados.
+3. execute o comando `dotnet ef database update` para criar as entidades no seu banco de dados 
+4. Abrir um CMD na pasta "back-end" e digitar o seguinte comando `dotnet run`
 
 * Front-end.
 1. Necessário npm e o node instalados e funcionando.
