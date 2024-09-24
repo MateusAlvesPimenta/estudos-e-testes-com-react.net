@@ -67,7 +67,7 @@ namespace FS_React_Net.Controllers
         }
 
         [HttpPut("UpdateContact/{id}")]
-        public async Task<IActionResult> UpdateContact(int id, ContactDTO contactDTO)
+        public async Task<IActionResult> UpdateContact([Required]int id, ContactDTO contactDTO)
         {
             contactDTO.Id = id;
             var updated = await _contactService.UpdateContact(contactDTO);
