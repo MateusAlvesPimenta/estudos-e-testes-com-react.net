@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-import { DeleteButton, EditButton } from "../ActionButtons";
-import { Context } from "../Context/Index";
+import { DeleteButton, EditButton } from "../../ActionButtons";
+import { Context } from "../../Context/Index";
 
 export function ListContacts() {
 
-    const { contact} = useContext(Context)
+    const { contact } = useContext(Context);
 
     if (contact.length == 0) {
+        // if no contacts are found, this return a default message
         return (
             <h1>Não há contatos aqui</h1>
         )

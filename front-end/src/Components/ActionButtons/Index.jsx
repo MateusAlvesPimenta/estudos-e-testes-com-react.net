@@ -5,14 +5,14 @@ import { Context } from "../Context/Index";
 export function AddButton(props) {
 
     const { entityType } = props;
-    const { post } = useContext(Context)
-    const [modal, setModal] = useState(false)
+    const { post } = useContext(Context);
+    const [modal, setModal] = useState(false);
     const [contact, setContact] = useState({
         id: "",
         name: "",
         phoneNumber: "",
         active: ""
-    })
+    });
 
     function openCloseModal() {
         setModal(!modal)
@@ -73,15 +73,15 @@ export function AddButton(props) {
 export function EditButton(props) {
 
     const { entity, entityType } = props;
-    const { put } = useContext(Context)
+    const { put } = useContext(Context);
 
-    const [modal, setModal] = useState(false)
+    const [modal, setModal] = useState(false);
     const [contact, setContact] = useState({
         ...entity
-    })
+    });
 
     function openCloseModal() {
-        setModal(!modal)
+        setModal(!modal);
     }
 
     function handleChange(e) {
@@ -90,7 +90,7 @@ export function EditButton(props) {
 
         setContact({
             ...contact, [name]: value, active: checked
-        })
+        });
     }
 
     function submit() {
@@ -145,11 +145,11 @@ export function EditButton(props) {
 export function DeleteButton(props) {
 
     const { entity, entityType } = props;
-    const { deleteContact } = useContext(Context)
-    const [modal, setModal] = useState(false)
+    const { deleteContact } = useContext(Context);
+    const [modal, setModal] = useState(false);
 
     function openCloseModal() {
-        setModal(!modal)
+        setModal(!modal);
     }
 
     return (

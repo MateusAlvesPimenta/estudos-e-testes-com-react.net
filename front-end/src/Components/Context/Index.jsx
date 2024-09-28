@@ -1,12 +1,15 @@
 import React, { createContext, useMemo, useState } from "react";
-import { deleteRequest, getByNameRequest, getRequest, postRequest, putRequest } from "../Services/Index";
+import {
+    deleteRequest, getByNameRequest,
+    getRequest, postRequest, putRequest
+} from "../Services/Index";
 
 export const Context = createContext({});
 
 export function ContextProvider(props) {
 
-    const [updateData, setUpdateData] = useState(true)
-    const [contact, setContact] = useState([])
+    const [updateData, setUpdateData] = useState(true);
+    const [contact, setContact] = useState([]);
 
     async function get() {
         const response = await getRequest();
@@ -21,7 +24,7 @@ export function ContextProvider(props) {
     }
 
     async function post(entity) {
-        await postRequest(entity); 
+        await postRequest(entity);
         setUpdateData(true);
     }
 
@@ -30,7 +33,7 @@ export function ContextProvider(props) {
         setUpdateData(true);
     }
 
-    async function deleteContact (id){
+    async function deleteContact(id) {
         await deleteRequest(id);
         setUpdateData(true);
     }
@@ -38,7 +41,7 @@ export function ContextProvider(props) {
     useMemo(() => {
         get();
         setUpdateData(false);
-    },[updateData])
+    }, [updateData]);
 
     return (
         <Context.Provider value={{
