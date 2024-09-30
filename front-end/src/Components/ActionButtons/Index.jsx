@@ -2,13 +2,11 @@ import React, { useContext, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { Context } from "../Context/Index";
 
-export function AddButton(props) {
+export function AddContactButton() {
 
-    const { entityType } = props;
     const { post } = useContext(Context);
     const [modal, setModal] = useState(false);
     const [contact, setContact] = useState({
-        id: "",
         name: "",
         phoneNumber: "",
         active: ""
@@ -28,7 +26,7 @@ export function AddButton(props) {
 
     function submit() {
         post(contact);
-        openCloseModal()
+        openCloseModal();
         event.preventDefault();
     }
 
@@ -37,7 +35,7 @@ export function AddButton(props) {
             <button onClick={openCloseModal} className="btn btn-primary px-4">New contact</button>
 
             <Modal isOpen={modal}>
-                <ModalHeader>New {entityType}</ModalHeader>
+                <ModalHeader>New Contact</ModalHeader>
                 <form onReset={openCloseModal} onSubmit={submit}>
                     <ModalBody>
                         <label className="form-label">Name</label>
@@ -70,9 +68,9 @@ export function AddButton(props) {
     )
 }
 
-export function EditButton(props) {
+export function EditContactButton(props) {
 
-    const { entity, entityType } = props;
+    const { entity } = props;
     const { put } = useContext(Context);
 
     const [modal, setModal] = useState(false);
@@ -104,7 +102,7 @@ export function EditButton(props) {
             <button onClick={openCloseModal} className="btn btn-secondary me-4">Edit</button>
 
             <Modal isOpen={modal}>
-                <ModalHeader>Edit {entityType}</ModalHeader>
+                <ModalHeader>Edit Contact</ModalHeader>
                 <form onReset={openCloseModal} onSubmit={submit}>
                     <ModalBody>
                         <div className="form-group">
@@ -162,7 +160,7 @@ export function DeleteButton(props) {
                 </ModalHeader>
                 <ModalFooter>
                     <button onClick={() => {
-                        deleteContact(entity.id)
+                        deleteContact(entity.id, entityType)
                         openCloseModal()}}
                         className="btn btn-danger">Yes, delete {entityType}</button>
                     <button onClick={openCloseModal} className="btn btn-secondary">Cancel</button>

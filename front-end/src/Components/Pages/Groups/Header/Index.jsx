@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AddContactButton } from "../../../ActionButtons";
+
 import { Context } from "../../../Context/Index";
 
 export function Header() {
@@ -9,13 +9,12 @@ export function Header() {
   function handleChange(e) {
 
     const { value } = e.target;
-    getByName(value);
+    getByName(value, "group");
   }
   return (
     <header className="my-5">
-      <h1>Contacts list</h1>
+      <h1>Groups list</h1>
       <br />
-      <AddContactButton />
 
       <div className="col my-3">
         <input className="form-control"

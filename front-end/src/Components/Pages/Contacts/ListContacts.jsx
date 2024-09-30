@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DeleteButton, EditButton } from "../../ActionButtons";
+import { DeleteButton, EditContactButton } from "../../ActionButtons";
 import { Context } from "../../Context/Index";
 
 export function ListContacts() {
@@ -32,7 +32,7 @@ export function ListContacts() {
                         <td>{contact.phoneNumber}</td>
                         <td><input type="checkbox" disabled checked={contact.active} /></td>
                         <td>
-                            <EditButton entity={contact} entityType="contact" />
+                            <EditContactButton entity={contact} />
                             <DeleteButton entity={contact} entityType="contact" />
                         </td>
                     </tr>
