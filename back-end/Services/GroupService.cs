@@ -37,7 +37,7 @@ namespace FS_React_Net.Services
         public async Task<List<Group>> GetGroupsByName(string groupName)
         {
             var groups = await _context.Groups.
-                                    Where(group => group.GroupName.Contains(groupName))
+                                    Where(group => group.Name.Contains(groupName))
                                     .ToListAsync();
 
             return groups;

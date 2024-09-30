@@ -8,9 +8,9 @@ namespace FS_React_Net.DTO
 
         [Required]
         [StringLength(100)]
-        public string GroupName { get; set; }
+        public string Name { get; set; }
         [Required]
         [StringLength(100)]
-        public string GroupDescription { get; set; }
+        public string Description { get; set; }
     }
 }

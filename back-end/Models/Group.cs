@@ -9,17 +9,17 @@ namespace FS_React_Net.Models
         public int Id { get; set; }
         [Required]
         [StringLength(100)]
-        public string GroupName { get; set; }
+        public string Name { get; set; }
         [Required]
         [StringLength(100)]
-        public string GroupDescription { get; set; }
+        public string Description { get; set; }
         public List<Contact> Contacts { get; set; } = new List<Contact>();
 
-        public Group(GroupDTO groupCreateDTO)
+        public Group(GroupDTO groupDTO)
         {
-            Id = groupCreateDTO.Id;
-            GroupName = groupCreateDTO.GroupName;
-            GroupDescription = groupCreateDTO.GroupDescription;
+            Id = groupDTO.Id;
+            Name = groupDTO.Name;
+            Description = groupDTO.Description;
         }
 
         public Group() { }
@@ -36,8 +36,8 @@ namespace FS_React_Net.Models
 
         public void UpdateGroup(GroupDTO groupDTO)
         {
-            GroupName = groupDTO.GroupName;
-            GroupDescription = groupDTO.GroupDescription;
+            Name = groupDTO.Name;
+            Description = groupDTO.Description;
         }
     }
 }
