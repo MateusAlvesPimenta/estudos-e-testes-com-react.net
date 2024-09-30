@@ -43,16 +43,9 @@ namespace FS_React_Net.Services
             return groups;
         }
 
-        public async Task<Group> CreateGroup(GroupCreateDTO groupDTO)
+        public async Task<Group> CreateGroup(GroupDTO groupDTO)
         {
-            var contact = await _context.Contacts.FindAsync(groupDTO.ContactId);
-
-            if(contact == null || contact.GroupId != null)
-            {
-                return null;
-            }
-
-            var newGroup = new Group(groupDTO, contact);
+            var newGroup = new Group(groupDTO);
 
             _context.Groups.Add(newGroup);
             await _context.SaveChangesAsync();
@@ -60,7 +53,7 @@ namespace FS_React_Net.Services
             return newGroup;
         }
 
-        public async Task<bool> UpdateGroup(GroupUpdateDTO groupDTO)
+        public async Task<bool> UpdateGroup(GroupDTO groupDTO)
         {
             var group = await _context.Groups.FindAsync(groupDTO.Id);
 

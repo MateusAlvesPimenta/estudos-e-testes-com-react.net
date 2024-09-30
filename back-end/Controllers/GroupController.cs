@@ -51,20 +51,15 @@ namespace FS_React_Net.Controllers
         }
 
         [HttpPost("NewGroup")]
-        public async Task<IActionResult> CreateGroup(GroupCreateDTO groupDTO)
+        public async Task<IActionResult> CreateGroup(GroupDTO groupDTO)
         {
             var group = await _groupService.CreateGroup(groupDTO);
-
-            if (group == null)
-            {
-                return NotFound($"Can't find any contact with id = {groupDTO.ContactId} or it already has a group");
-            }
 
             return CreatedAtAction(nameof(GetGroupById), new {id = group.Id}, group);
         }
 
         [HttpPut("UpdateGroup/{id}")]
-        public async Task<IActionResult> UpdateGroup(int id, GroupUpdateDTO groupDTO)
+        public async Task<IActionResult> UpdateGroup(int id, GroupDTO groupDTO)
         {
             groupDTO.Id = id;
             await _groupService.UpdateGroup(groupDTO);
