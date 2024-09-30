@@ -143,7 +143,7 @@ export function EditContactButton(props) {
 export function DeleteButton(props) {
 
     const { entity, entityType } = props;
-    const { deleteContact } = useContext(Context);
+    const { deleteEntity } = useContext(Context);
     const [modal, setModal] = useState(false);
 
     function openCloseModal() {
@@ -156,11 +156,11 @@ export function DeleteButton(props) {
 
             <Modal isOpen={modal}>
                 <ModalHeader >
-                    Are you sure you want to delete this {entityType}: <b>{entity && entity.name}</b>
+                    Are you sure you want to delete this {entityType}: <b>{entity && entity.id}</b>
                 </ModalHeader>
                 <ModalFooter>
                     <button onClick={() => {
-                        deleteContact(entity.id, entityType)
+                        deleteEntity(entity.id, entityType)
                         openCloseModal()}}
                         className="btn btn-danger">Yes, delete {entityType}</button>
                     <button onClick={openCloseModal} className="btn btn-secondary">Cancel</button>
