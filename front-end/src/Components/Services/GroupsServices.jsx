@@ -38,6 +38,6 @@ export async function putGroup(entity) {
 
 export async function deleteGroup(id) {
 
-    await api.delete(`/Group.Deletegroup/${id}`)
+    await api.delete(`/Group/DeleteGroup/${id}`)
         .catch(error => console.log(error));
 }

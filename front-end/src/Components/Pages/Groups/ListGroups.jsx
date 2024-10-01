@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DeleteButton, EditContactButton } from "../../ActionButtons";
+import { DeleteButton, EditGroupButton } from "../../ActionButtons";
 import { Context } from "../../Context/Index";
 
 export function ListGroups() {
@@ -27,6 +27,7 @@ export function ListGroups() {
                         <td>{group.id}</td>
                         <td>{group.name}</td>
                         <td>
+                            <EditGroupButton entity={group} />
                             <DeleteButton entity={group} entityType="group" />
                         </td>
                     </tr>

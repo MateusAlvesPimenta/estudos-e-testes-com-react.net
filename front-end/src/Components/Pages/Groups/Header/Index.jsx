@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 import { Context } from "../../../Context/Index";
+import { CreateGroupButton } from "../../../ActionButtons";
 
 export function Header() {
 
@@ -15,6 +16,7 @@ export function Header() {
     <header className="my-5">
       <h1>Groups list</h1>
       <br />
+      <CreateGroupButton />
 
       <div className="col my-3">
         <input className="form-control"

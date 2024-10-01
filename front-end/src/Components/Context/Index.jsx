@@ -65,7 +65,7 @@ export function ContextProvider(props) {
     async function deleteEntity(id, entityType) {
         
         if (entityType === "group") {
-            await deleteGroup();
+            await deleteGroup(id);
         }
         else {
             await deleteContact(id);

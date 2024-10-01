@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AddContactButton } from "../../../ActionButtons";
+import { CreateContactButton } from "../../../ActionButtons";
 import { Context } from "../../../Context/Index";
 
 export function Header() {
@@ -15,7 +15,7 @@ export function Header() {
     <header className="my-5">
       <h1>Contacts list</h1>
       <br />
-      <AddContactButton />
+      <CreateContactButton />
 
       <div className="col my-3">
         <input className="form-control"
