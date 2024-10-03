@@ -3,12 +3,14 @@ import { Route, Routes } from "react-router-dom";
 
 import { Contacts } from "./Components/Pages/Contacts/Index";
 import { Groups } from "./Components/Pages/Groups/Index";
+import { Home } from "./Components/Pages/Home/Index";
 
 export function MainRoutes() {
     
     return (
         <Routes>
-            <Route path="/" element={<Contacts />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/contacts" element={<Contacts />} />
             <Route path="/groups" element={<Groups />} />
         </Routes>
     )

@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+
 import { CreateContactButton } from "../../../ActionButtons";
 import { Context } from "../../../Context/Index";
+import { Col } from "reactstrap";
 
 export function Header() {
 
@@ -17,14 +19,14 @@ export function Header() {
       <br />
       <CreateContactButton />
 
-      <div className="col my-3">
+      <Col className="my-3">
         <input className="form-control"
           placeholder="Filter by name"
           onChange={handleChange}
           name="name"
           type="text"
         />
-      </div>
+      </Col>
     </header>
   )
 }
