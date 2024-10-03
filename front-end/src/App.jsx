@@ -2,6 +2,7 @@ import React from "react";
 
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./Styles.css";
 
 import { ContextProvider } from "./Components/Context/Index";
 import { CustomNavbar } from "./Components/Pages/Navbar/Index";

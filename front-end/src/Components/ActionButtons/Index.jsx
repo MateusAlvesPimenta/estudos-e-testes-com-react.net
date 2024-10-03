@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Badge, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { Badge, Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { Context } from "../Context/Index";
 
 export function CreateContactButton() {

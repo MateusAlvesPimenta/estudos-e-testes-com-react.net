@@ -16,12 +16,17 @@ export function CustomNavbar() {
             </NavbarBrand>
             <ButtonGroup>
                 <Link onClick={() => event.preventDefault()}
+                    to="/"
+                    className="btn btn-outline-light btn-lg border-2 fw-bold fs-4">
+                    Home
+                </Link>
+                <Link onClick={() => event.preventDefault()}
                     to="/groups"
                     className="btn btn-outline-light btn-lg border-2 fw-bold fs-4" >
                     Groups
                 </Link>
                 <Link onClick={() => event.preventDefault()}
-                    to="/"
+                    to="/contacts"
                     className="btn btn-outline-light btn-lg border-2 fw-bold fs-4" >
                     Contacts
                 </Link>

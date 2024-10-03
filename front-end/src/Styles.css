@@ -1,0 +1,8 @@
+.center{
+    display: flex;
+    justify-content: center;
+    padding-top: 30vh;
+}
+.fill{
+    height: 100vh;
+}

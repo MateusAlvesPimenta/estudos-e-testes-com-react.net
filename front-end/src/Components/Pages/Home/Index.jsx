@@ -4,7 +4,7 @@ import { Container } from "reactstrap";
 export function Home() {
     
     return (
-        <Container fluid className="bg-info text-white align-text-center">
+        <Container fluid className="center fill bg-light">
             <h1>Welcome Home</h1>
         </Container>
     )

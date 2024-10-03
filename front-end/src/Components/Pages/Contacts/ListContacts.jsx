@@ -14,7 +14,7 @@ export function ListContacts() {
     }
 
     return (
-        <table className="table table-bordered">
+        <table className="table table-hover table-bordered">
             <thead>
                 <tr>
                     <th>Id</th>

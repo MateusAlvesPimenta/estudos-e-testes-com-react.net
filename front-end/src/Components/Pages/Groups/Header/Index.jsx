@@ -14,7 +14,7 @@ export function Header() {
     getByName(value, "group");
   }
   return (
-    <header className="my-5">
+    <header className="py-5">
       <h1>Groups list</h1>
       <br />
       <CreateGroupButton />

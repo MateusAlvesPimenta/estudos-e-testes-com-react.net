@@ -8,9 +8,11 @@ import { Container } from "reactstrap";
 export function Contacts() {
 
     return (
-        <Container>
-            <Header />
-            <ListContacts />
-        </Container>
+        <div className="fill bg-light">
+            <Container>
+                <Header />
+                <ListContacts />
+            </Container>
+        </div>
     )
 }

@@ -14,7 +14,7 @@ export function Header() {
     getByName(value);
   }
   return (
-    <header className="my-5">
+    <header className="py-5">
       <h1>Contacts list</h1>
       <br />
       <CreateContactButton />

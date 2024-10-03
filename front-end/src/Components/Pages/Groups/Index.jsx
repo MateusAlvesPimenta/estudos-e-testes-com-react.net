@@ -8,9 +8,11 @@ import { Container } from "reactstrap";
 export function Groups() {
 
     return (
-        <Container>
-            <Header />
-            <ListGroups />
-        </Container>
+        <div className="fill bg-light">
+            <Container>
+                <Header />
+                <ListGroups />
+            </Container>
+        </div>
     )
 }

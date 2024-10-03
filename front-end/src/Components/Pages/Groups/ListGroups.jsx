@@ -19,6 +19,7 @@ export function ListGroups() {
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
+                    <th>Options</th>
                 </tr>
             </thead>
             <tbody>
