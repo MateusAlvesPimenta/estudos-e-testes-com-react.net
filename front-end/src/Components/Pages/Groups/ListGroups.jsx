@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DeleteButton, EditGroupButton } from "../../ActionButtons";
+import { DeleteButton, Details, EditGroupButton } from "../../ActionButtons";
 import { Context } from "../../Context/Index";
 
 export function ListGroups() {
@@ -14,7 +14,7 @@ export function ListGroups() {
     }
 
     return (
-        <table className="table table-bordered">
+        <table className="table table-hover table-bordered">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -28,6 +28,7 @@ export function ListGroups() {
                         <td>{group.id}</td>
                         <td>{group.name}</td>
                         <td>
+                            <Details entity={group} />
                             <EditGroupButton entity={group} />
                             <DeleteButton entity={group} entityType="group" />
                         </td>

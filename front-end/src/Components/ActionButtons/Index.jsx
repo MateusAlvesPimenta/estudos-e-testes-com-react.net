@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Badge, Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import { Context } from "../Context/Index";
+import { Link } from "react-router-dom";
 
 export function CreateContactButton() {
 
@@ -131,7 +132,7 @@ export function EditContactButton(props) {
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <button type="submit" className="btn btn-primary">Edit</button>
+                        <button type="submit" className="btn btn-secondary">Edit</button>
                         <button type="reset" className="btn btn-danger">Cancel</button>
                     </ModalFooter>
                 </form>
@@ -256,12 +257,25 @@ export function EditGroupButton(props) {
                         </Badge>
                     </ModalBody>
                     <ModalFooter>
-                        <button type="submit" className="btn btn-primary">Edit</button>
+                        <button type="submit" className="btn btn-secondary">Edit</button>
                         <button type="reset" className="btn btn-danger">Cancel</button>
                     </ModalFooter>
                 </form>
             </Modal>
         </>
+    )
+}
+
+export function Details(props) {
+
+    const { id, name } = props.entity;
+
+    return (
+        <Link to={`/group/${name}/${id}`}
+            className="btn btn-primary me-4"
+        >
+            Details
+        </Link>
     )
 }
 

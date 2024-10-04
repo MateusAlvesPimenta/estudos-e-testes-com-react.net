@@ -5,7 +5,8 @@ import {
 } from "../Services/ContactsServices";
 import {
     getGroups, getGroupsByName,
-    postGroup, putGroup, deleteGroup
+    postGroup, putGroup, deleteGroup,
+    getGroupById
 } from "../Services/GroupsServices";
 
 export const Context = createContext({});
@@ -15,6 +16,7 @@ export function ContextProvider(props) {
     const [updateData, setUpdateData] = useState(true);
     const [contact, setContact] = useState([]);
     const [group, setGroup] = useState([]);
+    const [groupDetails, setGroupDetails] = useState([]);
 
     async function get(entityType) {
 
@@ -38,6 +40,12 @@ export function ContextProvider(props) {
             const response = await getContactsByName(name);
             setContact(response.data);
         }
+    }
+
+    async function getById(id) {
+        
+        const response = await getGroupById(id);
+        setGroupDetails(response.data);
     }
 
     async function post(entity, entityType) {
@@ -83,7 +91,9 @@ export function ContextProvider(props) {
         <Context.Provider value={{
             contact,
             group,
+            groupDetails,
             getByName,
+            getById,
             post,
             put,
             deleteEntity
