@@ -35,7 +35,7 @@ Nele eu vou adaptar alguns códigos antigos meus, melhorar-los e também adicion
 3. Criar os serviços e controllers para as novas entidades.✔️
 4. Deixar tudo pronto para ser implementado no Front-end.✔️
 
-* Implementar todas as mudanças no Front-end.⚙️
-1. Consertar, organizar e dividir o código em modulos e organizar-los para ampliar o projeto.⚙️
-2. Criar as novas interfaces para integrar as novas ações do Back-end.⚙️
+* Implementar todas as mudanças no Front-end.✔️
+1. Consertar, organizar e dividir o código em modulos e organizar-los para ampliar o projeto.✔️
+2. Criar as novas interfaces para integrar as novas ações do Back-end.✔️
 3. Criar as novas interfaces para integrar o novo sistema de autenticação.🛠️

@@ -6,7 +6,9 @@ import {
 import {
     getGroups, getGroupsByName,
     postGroup, putGroup, deleteGroup,
-    getGroupById
+    getGroupById,
+    removeContact,
+    addContact
 } from "../Services/GroupsServices";
 
 export const Context = createContext({});
@@ -14,12 +16,17 @@ export const Context = createContext({});
 export function ContextProvider(props) {
 
     const [updateData, setUpdateData] = useState(true);
+    const [updateGroupDetails, setUpdateGroupDetails] = useState(true);
     const [contact, setContact] = useState([]);
     const [group, setGroup] = useState([]);
-    const [groupDetails, setGroupDetails] = useState([]);
+    const [groupDetails, setGroupDetails] = useState({
+        name: "",
+        description: "",
+        contacts: []
+    });
 
     async function get(entityType) {
-
+        
         if (entityType === "group") {
             const response = await getGroups();
             setGroup(response.data);
@@ -28,6 +35,14 @@ export function ContextProvider(props) {
             const response = await getContacts();
             setContact(response.data);
         }
+    }
+    
+    async function getById(id) {
+        var response = await getGroupById(id);
+
+        console.log(id)
+
+        setGroupDetails(response.data);
     }
 
     async function getByName(name, entityType) {
@@ -40,12 +55,6 @@ export function ContextProvider(props) {
             const response = await getContactsByName(name);
             setContact(response.data);
         }
-    }
-
-    async function getById(id) {
-        
-        const response = await getGroupById(id);
-        setGroupDetails(response.data);
     }
 
     async function post(entity, entityType) {
@@ -81,6 +90,30 @@ export function ContextProvider(props) {
         setUpdateData(true);
     }
 
+    async function addContactToGroup(contactId, groupId) { 
+        
+        await addContact(contactId, groupId);
+        setUpdateGroupDetails(true);
+        console.log(groupDetails.id);
+    }
+
+    async function removeContactFromGroup(contactId, groupId) {
+        
+        await removeContact(contactId, groupId);
+        setUpdateGroupDetails(true);
+        console.log(groupDetails.id);
+    }
+    
+    
+    
+    useMemo(() => {
+        if (groupDetails.id != undefined) {
+            getById(groupDetails.id);
+        }
+        setUpdateGroupDetails(false);
+        setUpdateData(true);
+    }, [updateGroupDetails]);
+
     useMemo(() => {
         get("contact");
         get("group");
@@ -92,11 +125,13 @@ export function ContextProvider(props) {
             contact,
             group,
             groupDetails,
-            getByName,
             getById,
+            getByName,
             post,
             put,
-            deleteEntity
+            deleteEntity,
+            addContactToGroup,
+            removeContactFromGroup
         }}>
             {props.children}
         </Context.Provider>

@@ -41,3 +41,15 @@ export async function deleteGroup(id) {
     await api.delete(`/Group/DeleteGroup/${id}`)
         .catch(error => console.log(error));
 }
+
+export async function addContact(contactId, groupId) {
+    console.log(contactId, groupId);
+    
+    await api.put(`/Group/AddContact/${contactId}?groupId=${groupId}`)
+        .catch(error => console.log(error));
+}
+
+export async function removeContact(contactId, groupId) {
+    await api.put(`/Group/RemoveContact/${contactId}?groupId=${groupId}`)
+        .catch(error => console.log(error));
+}

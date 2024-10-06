@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
-import { Badge, Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import React, { useContext, useMemo, useState } from "react";
+import { Badge, DropdownItem, DropdownMenu, DropdownToggle, Modal, ModalBody, ModalFooter, ModalHeader, UncontrolledDropdown } from "reactstrap";
 import { Context } from "../Context/Index";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { addContact } from "../Services/GroupsServices";
 
 export function CreateContactButton() {
 
@@ -272,10 +273,97 @@ export function Details(props) {
 
     return (
         <Link to={`/group/${name}/${id}`}
-            className="btn btn-primary me-4"
-        >
+            className="btn btn-primary me-4" >
             Details
         </Link>
+    )
+}
+
+export function AddToGroup() {
+
+    const { contact, addContactToGroup } = useContext(Context);
+    const { id } = useParams();
+
+    const [modal, setModal] = useState(false);
+    const [contactsWithoutGroup, setContactsWithoutGroup] = useState(contact.filter(contact => contact.groupId === null));
+    const [selectedContact, setSelectedContact] = useState({ ...contactsWithoutGroup[0] });
+
+    function openCloseModal() {
+        setModal(!modal);
+    }
+
+    async function submit() {
+
+        if (contactsWithoutGroup.length > 0) {
+            addContactToGroup(selectedContact.id, parseInt(id));
+        }
+        openCloseModal();
+        event.preventDefault();
+    }
+
+    useMemo(() => {
+        setContactsWithoutGroup(contact.filter(contact => contact.groupId === null));
+        setSelectedContact({ ...contactsWithoutGroup[0] });
+    }, [contact])
+
+    return (
+        <>
+            <button onClick={openCloseModal} className="btn btn-primary mt-5 px-4">Add contact to group</button>
+
+            <Modal isOpen={modal}>
+                <ModalHeader>Select a contact</ModalHeader>
+                <form onReset={openCloseModal} onSubmit={submit}>
+
+                    <ModalBody>
+                        <UncontrolledDropdown>
+                            <DropdownToggle>
+                                {contactsWithoutGroup.length == 0 ?
+                                    (<>Não há contatos sem grupo</>) : selectedContact.name}
+                            </DropdownToggle>
+                            <DropdownMenu dark>
+                                {contactsWithoutGroup.map(contact => (
+                                    <DropdownItem onClick={() => setSelectedContact(contact)} key={contact.id}>{contact.name}</DropdownItem>
+                                ))}
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
+                    </ModalBody>
+                    <ModalFooter>
+                        <button type="submit" className="btn btn-primary">Add</button>
+                        <button type="reset" className="btn btn-danger">Cancel</button>
+                    </ModalFooter>
+                </form>
+            </Modal>
+        </>
+    )
+}
+
+export function RemoveFromGroup(props) {
+
+    const { contact, groupId } = props;
+    const { removeContactFromGroup } = useContext(Context);
+
+    const [modal, setModal] = useState(false);
+
+    function openCloseModal() {
+        setModal(!modal);
+    }
+
+    return (
+        <>
+            <button onClick={openCloseModal} className="btn btn-danger">Remove</button>
+
+            <Modal isOpen={modal}>
+                <ModalHeader>Are you sure you want to remove {contact.name} from this group?</ModalHeader>
+                <ModalFooter>
+                    <button onClick={() => {
+                        removeContactFromGroup(contact.id, groupId);
+                        openCloseModal();
+                    }}
+                        className="btn btn-danger">Remove</button>
+                    <button onClick={openCloseModal} className="btn btn-secondary">Cancel</button>
+                </ModalFooter>
+            </Modal>
+        </>
     )
 }
 
@@ -299,8 +387,8 @@ export function DeleteButton(props) {
                 </ModalHeader>
                 <ModalFooter>
                     <button onClick={() => {
-                        deleteEntity(entity.id, entityType)
-                        openCloseModal()
+                        deleteEntity(entity.id, entityType);
+                        openCloseModal();
                     }}
                         className="btn btn-danger">Yes, delete {entityType}</button>
                     <button onClick={openCloseModal} className="btn btn-secondary">Cancel</button>
