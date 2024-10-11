@@ -57,7 +57,7 @@ namespace FS_React_Net.Services
         {
             var group = await _context.Groups.FindAsync(groupDTO.Id);
 
-            if(group == null)
+            if (group == null)
             {
                 return false;
             }
@@ -78,43 +78,42 @@ namespace FS_React_Net.Services
 
         public async Task<string> AddContact(int contactId, int groupId)
         {
+            var exists = await _context.ContactGroups.AnyAsync(cg => cg.ContactId == contactId && cg.GroupId == groupId);
+
+            if (exists)
+                return "exists";
+
             var contact = await _context.Contacts.FindAsync(contactId);
             var group = await _context.Groups.FindAsync(groupId);
 
-            if(contact == null || group == null)
-            {
+            if (contact == null || group == null)
                 return null;
-            }
-            else if(group.Contacts.Contains(contact))
-            {
-                return "exists";
-            }
+            
+            group.Contacts.Add(contact);
 
-            group.AddContact(contact);
-
-            _context.Entry(group).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return "added";
         }
 
-        public async Task<(bool, bool)> RemoveContact(int contactId, int groupId)
+        public async Task<string> RemoveContact(int contactId, int groupId)
         {
             var contact = await _context.Contacts.FindAsync(contactId);
-            var group = await _context.Groups.FindAsync(groupId);
+            var group = await _context.Groups.
+                                Where(group => group.Id == groupId)
+                                .Include(group => group.Contacts)
+                                .FirstOrDefaultAsync();
 
-            if(contact == null || group == null)
-            {
-                return (false, false);
+            if (contact == null || group == null)
+                return null;
 
-            }
+            var removed = group.Contacts.Remove(contact);
 
-            var removed = group.RemoveContact(contact);
+            if(!removed)
+                return "not removed";
 
-            _context.Groups.Entry(group).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-
-            return (true, removed);
+            return "removed";
         }
     }
 }

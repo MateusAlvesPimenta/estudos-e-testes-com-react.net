@@ -88,26 +88,26 @@ namespace FS_React_Net.Controllers
 
             if (result == null)
             {
-                return NotFound($"One or both ids do not exist, contact: {contactId}; group: {groupId}");
+                return NotFound($"One or both ids do not exist \ncontact: {contactId} \ngroup: {groupId}");
             }
             else if (result == "exists")
             {
                 return Ok($"The group with id = {groupId} already contains a contact with id = {contactId}");
             }
 
-            return Ok("Contact successfully added to group");
+            return Ok($"Contact successfully added to group {groupId}");
         }
 
         [HttpPut("RemoveContact/{contactId}")]
-        public IActionResult RemoveContact([Required]int contactId, [Required]int groupId)
+        public async Task<IActionResult> RemoveContact([Required]int contactId, [Required]int groupId)
         {
-            var result = _groupService.RemoveContact(contactId, groupId).Result;
+            var result = await _groupService.RemoveContact(contactId, groupId);
 
-            if(!result.Item1)
+            if(result == null)
             {
-                return NotFound($"One or both ids do not exist, contact: {contactId}; group: {groupId}");
+                return NotFound($"One or both ids do not exist \ncontact: {contactId} \ngroup: {groupId}");
             }
-            else if(!result.Item2)
+            else if(result == "not removed")
             {
                 return NotFound($"Group with id = {groupId} does not contain a contact with id = {contactId} ");
             }

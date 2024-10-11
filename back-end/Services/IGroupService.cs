@@ -12,6 +12,6 @@ namespace FS_React_Net.Services
         Task<bool> UpdateGroup(GroupDTO groupDTO);
         Task DeleteGroup(Group group);
         Task<string> AddContact(int contactId, int groupId);
-        Task<(bool, bool)> RemoveContact(int contactId, int groupId);
+        Task<string> RemoveContact(int contactId, int groupId);
     }
 }

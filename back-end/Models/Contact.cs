@@ -16,8 +16,7 @@ namespace FS_React_Net.Models
         [Required]
         public bool Active { get; set; }
         [JsonIgnore]
-        public Group Group { get; set; }
-        public int? GroupId { get; set; }
+        public List<Group> Groups { get; set; }
 
         public Contact(){}
         public Contact(ContactDTO contactDTO)

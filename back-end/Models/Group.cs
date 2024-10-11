@@ -24,16 +24,6 @@ namespace FS_React_Net.Models
 
         public Group() { }
 
-        public void AddContact(Contact contact)
-        {
-            Contacts.Add(contact);
-        }
-
-        public bool RemoveContact(Contact contact)
-        {
-            return Contacts.Remove(contact);
-        }
-
         public void UpdateGroup(GroupDTO groupDTO)
         {
             Name = groupDTO.Name;
