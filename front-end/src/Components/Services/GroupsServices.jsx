@@ -14,7 +14,7 @@ export async function getGroupsByName(name) {
                 // if no group with this name is found, return
                 return getGroups();
             }
-            return console.log(error);
+            console.log(error);
         });
 }
 
@@ -43,7 +43,6 @@ export async function deleteGroup(id) {
 }
 
 export async function addContact(contactId, groupId) {
-    console.log(contactId, groupId);
     
     await api.put(`/Group/AddContact/${contactId}?groupId=${groupId}`)
         .catch(error => console.log(error));

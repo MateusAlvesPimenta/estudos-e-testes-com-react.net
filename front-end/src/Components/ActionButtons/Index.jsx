@@ -2,7 +2,6 @@ import React, { useContext, useMemo, useState } from "react";
 import { Badge, DropdownItem, DropdownMenu, DropdownToggle, Modal, ModalBody, ModalFooter, ModalHeader, UncontrolledDropdown } from "reactstrap";
 import { Context } from "../Context/Index";
 import { Link, useParams } from "react-router-dom";
-import { addContact } from "../Services/GroupsServices";
 
 export function CreateContactButton() {
 
@@ -281,12 +280,14 @@ export function Details(props) {
 
 export function AddToGroup() {
 
-    const { contact, addContactToGroup } = useContext(Context);
+    const { groupDetails, contact, addContactToGroup } = useContext(Context);
     const { id } = useParams();
 
     const [modal, setModal] = useState(false);
-    const [contactsWithoutGroup, setContactsWithoutGroup] = useState(contact.filter(contact => contact.groupId === null));
-    const [selectedContact, setSelectedContact] = useState({ ...contactsWithoutGroup[0] });
+    const [contactsOutsideTheGroup, setContactsOutsideTheGroup] = useState(
+        contact.filter(contact => groupDetails.contacts.find(item => item.id === contact.id) == null)
+    );
+    const [selectedContact, setSelectedContact] = useState({});
 
     function openCloseModal() {
         setModal(!modal);
@@ -294,7 +295,7 @@ export function AddToGroup() {
 
     async function submit() {
 
-        if (contactsWithoutGroup.length > 0) {
+        if (contactsOutsideTheGroup.length > 0) {
             addContactToGroup(selectedContact.id, parseInt(id));
         }
         openCloseModal();
@@ -302,9 +303,13 @@ export function AddToGroup() {
     }
 
     useMemo(() => {
-        setContactsWithoutGroup(contact.filter(contact => contact.groupId === null));
-        setSelectedContact({ ...contactsWithoutGroup[0] });
-    }, [contact])
+        setContactsOutsideTheGroup(
+            contact.filter(contact => groupDetails.contacts.find(item => item.id === contact.id) == null)
+        );
+        setSelectedContact(
+            contact.find(contact => groupDetails.contacts.find(item => item.id === contact.id) == null)
+        );
+    }, [modal])
 
     return (
         <>
@@ -312,17 +317,19 @@ export function AddToGroup() {
 
             <Modal isOpen={modal}>
                 <ModalHeader>Select a contact</ModalHeader>
-                <form onReset={openCloseModal} onSubmit={submit}>
 
+                <form onReset={openCloseModal} onSubmit={submit}>
                     <ModalBody>
                         <UncontrolledDropdown>
                             <DropdownToggle>
-                                {contactsWithoutGroup.length == 0 ?
+                                {contactsOutsideTheGroup.length === 0 ?
                                     (<>Não há contatos sem grupo</>) : selectedContact.name}
                             </DropdownToggle>
                             <DropdownMenu dark>
-                                {contactsWithoutGroup.map(contact => (
-                                    <DropdownItem onClick={() => setSelectedContact(contact)} key={contact.id}>{contact.name}</DropdownItem>
+                                {contactsOutsideTheGroup.map(contact => (
+                                    <DropdownItem onClick={() => setSelectedContact(contact)} key={contact.id}>
+                                        {contact.name}
+                                    </DropdownItem>
                                 ))}
                             </DropdownMenu>
                         </UncontrolledDropdown>

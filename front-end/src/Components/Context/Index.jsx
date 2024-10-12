@@ -1,8 +1,10 @@
 import React, { createContext, useMemo, useState } from "react";
+
 import {
     deleteContact, getContactsByName,
     getContacts, postContact, putContact
 } from "../Services/ContactsServices";
+
 import {
     getGroups, getGroupsByName,
     postGroup, putGroup, deleteGroup,
@@ -39,8 +41,6 @@ export function ContextProvider(props) {
     
     async function getById(id) {
         var response = await getGroupById(id);
-
-        console.log(id)
 
         setGroupDetails(response.data);
     }
@@ -94,14 +94,12 @@ export function ContextProvider(props) {
         
         await addContact(contactId, groupId);
         setUpdateGroupDetails(true);
-        console.log(groupDetails.id);
     }
 
     async function removeContactFromGroup(contactId, groupId) {
         
         await removeContact(contactId, groupId);
         setUpdateGroupDetails(true);
-        console.log(groupDetails.id);
     }
     
     

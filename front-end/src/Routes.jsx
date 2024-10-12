@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
+import { Home } from "./Components/Pages/Home/Index";
 import { Contacts } from "./Components/Pages/Contacts/Index";
 import { Groups } from "./Components/Pages/Groups/Index";
-import { Home } from "./Components/Pages/Home/Index";
 import { GroupDetails } from "./Components/Pages/GroupDetails/Index";
 
 export function MainRoutes() {
