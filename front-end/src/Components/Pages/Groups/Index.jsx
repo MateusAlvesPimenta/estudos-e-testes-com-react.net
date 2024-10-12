@@ -1,8 +1,9 @@
 import React from "react";
 
+import { Container } from "reactstrap";
+
 import { Header } from "./Header/Index";
 import { ListGroups } from "./ListGroups";
-import { Container } from "reactstrap";
 
 
 export function Groups() {

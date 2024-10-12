@@ -13,7 +13,7 @@ export function Header() {
     <header className="py-5">
 
       <h1>Grupo: {groupDetails.name}</h1>
-      <h4 >{groupDetails.description}</h4>
+      <h4 className="description">{groupDetails.description}</h4>
 
       <AddToGroup />
       <p>{groupDetails.contacts.length} members</p>
