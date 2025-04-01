@@ -78,7 +78,9 @@ namespace FS_React_Net.Services
 
         public async Task<string> AddContact(int contactId, int groupId)
         {
-            var exists = await _context.ContactGroups.AnyAsync(cg => cg.ContactId == contactId && cg.GroupId == groupId);
+            var exists = await _context.ContactGroups
+                                .AnyAsync(contacGroup => contacGroup.ContactId == contactId && 
+                                                        contacGroup.GroupId == groupId);
 
             if (exists)
                 return "exists";

@@ -1,10 +1,12 @@
 using FS_React_Net.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace FS_React_Net.Context
 {
-    public class ContactContext : DbContext
+    public class ContactContext : IdentityDbContext<IdentityUser>
     {
         public ContactContext(DbContextOptions<ContactContext> options) : base(options)
         {
@@ -14,14 +16,19 @@ namespace FS_React_Net.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ContactGroup>()
-                .HasKey(cg => new { cg.GroupId, cg.ContactId });
+                .HasKey(contactGroup => new { contactGroup.GroupId, contactGroup.ContactId });
 
             modelBuilder.Entity<Contact>()
-                .HasMany(c => c.Groups)
-                .WithMany(g => g.Contacts)
+                .HasMany(contact => contact.Groups)
+                .WithMany(group => group.Contacts)
                 .UsingEntity<ContactGroup>(
-                    j => j.HasOne(cg => cg.Group).WithMany().HasForeignKey(cg => cg.GroupId),
-                    j => j.HasOne(cg => cg.Contact).WithMany().HasForeignKey(cg => cg.ContactId));
+                    j =>    j.HasOne(contactGroup => contactGroup.Group)
+                            .WithMany()
+                            .HasForeignKey(contactGroup => contactGroup.GroupId),
+
+                    j =>    j.HasOne(contactGroup => contactGroup.Contact)
+                            .WithMany()
+                            .HasForeignKey(contactGroup => contactGroup.ContactId));
 
             base.OnModelCreating(modelBuilder);
         }

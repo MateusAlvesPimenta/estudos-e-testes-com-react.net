@@ -3,13 +3,15 @@ using FS_React_Net.Context;
 using FS_React_Net.DTO;
 using FS_React_Net.Models;
 using FS_React_Net.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FS_React_Net.Controllers
 {
     [ApiController]
     [Route("[Controller]")]
-
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ContactController : ControllerBase
     {
         private readonly IContactService _contactService;

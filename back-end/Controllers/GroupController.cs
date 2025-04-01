@@ -1,12 +1,15 @@
 using System.ComponentModel.DataAnnotations;
 using FS_React_Net.DTO;
 using FS_React_Net.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FS_React_Net.Controllers
 {
     [ApiController]
     [Route("[Controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class GroupController : ControllerBase
     {
         private readonly IGroupService _groupService;
@@ -25,7 +28,7 @@ namespace FS_React_Net.Controllers
         }
 
         [HttpGet("GetGroupsByName/{name}")]
-        public async Task<IActionResult> GetGroupsByName([Required]string name)
+        public async Task<IActionResult> GetGroupsByName([Required] string name)
         {
             var groups = await _groupService.GetGroupsByName(name);
 
@@ -55,7 +58,7 @@ namespace FS_React_Net.Controllers
         {
             var group = await _groupService.CreateGroup(groupDTO);
 
-            return CreatedAtAction(nameof(GetGroupById), new {id = group.Id}, group);
+            return CreatedAtAction(nameof(GetGroupById), new { id = group.Id }, group);
         }
 
         [HttpPut("UpdateGroup/{id}")]
@@ -72,7 +75,7 @@ namespace FS_React_Net.Controllers
         {
             var group = await _groupService.GetGroupById(id);
 
-            if(group == null)
+            if (group == null)
             {
                 return NotFound($"No group with id = {id} found");
             }
@@ -82,7 +85,7 @@ namespace FS_React_Net.Controllers
         }
 
         [HttpPut("AddContact/{contactId}")]
-        public async Task<IActionResult> AddContact([Required]int contactId, [Required]int groupId)
+        public async Task<IActionResult> AddContact([Required] int contactId, [Required] int groupId)
         {
             var result = await _groupService.AddContact(contactId, groupId);
 
@@ -99,15 +102,15 @@ namespace FS_React_Net.Controllers
         }
 
         [HttpPut("RemoveContact/{contactId}")]
-        public async Task<IActionResult> RemoveContact([Required]int contactId, [Required]int groupId)
+        public async Task<IActionResult> RemoveContact([Required] int contactId, [Required] int groupId)
         {
             var result = await _groupService.RemoveContact(contactId, groupId);
 
-            if(result == null)
+            if (result == null)
             {
                 return NotFound($"One or both ids do not exist \ncontact: {contactId} \ngroup: {groupId}");
             }
-            else if(result == "not removed")
+            else if (result == "not removed")
             {
                 return NotFound($"Group with id = {groupId} does not contain a contact with id = {contactId} ");
             }
