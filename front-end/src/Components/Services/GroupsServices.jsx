@@ -1,14 +1,14 @@
 import { api } from "./Api";
 
-export async function getGroups() {
+export async function getGroups(config) {
 
-    return await api.get("/Group")
+    return await api.get("/Group", config)
         .catch(error => console.log(error));
 }
 
-export async function getGroupsByName(name) {
+export async function getGroupsByName(name, config) {
 
-    return await api.get(`/Group/GetGroupsByName/${name}`)
+    return await api.get(`/Group/GetGroupsByName/${name}`, config)
         .catch(error => {
             if (error.status == 404) {
                 // if no group with this name is found, return
@@ -18,37 +18,37 @@ export async function getGroupsByName(name) {
         });
 }
 
-export async function getGroupById(id) {
+export async function getGroupById(id, config) {
 
-    return await api.get(`/Group/GetGroupById/${id}`)
+    return await api.get(`/Group/GetGroupById/${id}`, config)
         .catch(error => console.log(error));
 }
 
-export async function postGroup(entity) {
+export async function postGroup(entity, config) {
 
-    await api.post("/Group/NewGroup", entity)
+    await api.post("/Group/NewGroup", entity, config)
         .catch(error => console.log(error));
 }
 
-export async function putGroup(entity) {
+export async function putGroup(entity, config) {
 
-    await api.put(`/Group/UpdateGroup/${entity.id}`, entity)
+    await api.put(`/Group/UpdateGroup/${entity.id}`, entity, config)
         .catch(error => console.log(error));
 }
 
-export async function deleteGroup(id) {
+export async function deleteGroup(id, config) {
 
-    await api.delete(`/Group/DeleteGroup/${id}`)
+    await api.delete(`/Group/DeleteGroup/${id}`, config)
         .catch(error => console.log(error));
 }
 
-export async function addContact(contactId, groupId) {
+export async function addContact(contactId, groupId, config) {
     
-    await api.put(`/Group/AddContact/${contactId}?groupId=${groupId}`)
+    await api.put(`/Group/AddContact/${contactId}?groupId=${groupId}`, groupId, config)
         .catch(error => console.log(error));
 }
 
-export async function removeContact(contactId, groupId) {
-    await api.put(`/Group/RemoveContact/${contactId}?groupId=${groupId}`)
+export async function removeContact(contactId, groupId, config) {
+    await api.put(`/Group/RemoveContact/${contactId}?groupId=${groupId}`, groupId, config)
         .catch(error => console.log(error));
 }

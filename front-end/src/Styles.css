@@ -1,8 +1,23 @@
-.center{
-    display: flex;
-    justify-content: center;
-    padding-top: 30vh;
+body {
+    background-color: #f8f9fa;
 }
-.fill{
-    height: 100vh;
+
+.authentication {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    min-width: 60%;
+    padding-top: 5vh;
+}
+
+.authentication .btn {
+    width: 100%;
+}
+
+.authentication input:valid {
+    border: 1px green solid;
+}
+
+.authentication input:invalid {
+    border: 1px red solid;
 }

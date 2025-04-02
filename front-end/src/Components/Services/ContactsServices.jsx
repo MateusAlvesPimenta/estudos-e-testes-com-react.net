@@ -1,14 +1,14 @@
 import { api } from "./Api";
 
-export async function getContacts() {
+export async function getContacts(config) {
 
-    return await api.get("/Contact")
+    return await api.get("/Contact", config)
         .catch(error => console.log(error));
 }
 
-export async function getContactsByName(name) {
+export async function getContactsByName(name, config) {
 
-    return await api.get(`/Contact/GetContactsByName/${name}`)
+    return await api.get(`/Contact/GetContactsByName/${name}`, config)
         .catch(error => {
             if (error.status === 404) {
                 // if no contact with this name is found, return all contacts
@@ -18,20 +18,20 @@ export async function getContactsByName(name) {
         });
 }
 
-export async function postContact(entity) {
+export async function postContact(entity, config) {
 
-    await api.post("/Contact/NewContact", entity)
+    await api.post("/Contact/NewContact", entity, config)
         .catch(error => console.log(error));
 }
 
-export async function putContact(entity) {
+export async function putContact(entity, config) {
 
-    await api.put(`/Contact/UpdateContact/${entity.id}`, entity)
+    await api.put(`/Contact/UpdateContact/${entity.id}`, entity, config)
         .catch(error => console.log(error));
 }
 
-export async function deleteContact(id) {
+export async function deleteContact(id, config) {
 
-    await api.delete(`/Contact/DeleteContact/${id}`)
+    await api.delete(`/Contact/DeleteContact/${id}`, config)
         .catch(error => console.log(error));
 }

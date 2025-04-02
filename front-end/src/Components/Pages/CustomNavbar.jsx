@@ -1,9 +1,11 @@
-import React from "react";
-
 import { ButtonGroup, Navbar, NavbarBrand } from "reactstrap";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../Context/Index";
 
-export function CustomNavbar() {
+export function CustomNavbar(props) {
+
+    const { token } = useContext(Context);
 
     return (
         <Navbar
@@ -18,18 +20,22 @@ export function CustomNavbar() {
                 <Link onClick={() => event.preventDefault()}
                     to="/"
                     className="btn btn-outline-light btn-lg border-2 fw-bold fs-4">
-                    Home
+                    Login
                 </Link>
-                <Link onClick={() => event.preventDefault()}
-                    to="/groups"
-                    className="btn btn-outline-light btn-lg border-2 fw-bold fs-4" >
-                    Groups
-                </Link>
-                <Link onClick={() => event.preventDefault()}
-                    to="/contacts"
-                    className="btn btn-outline-light btn-lg border-2 fw-bold fs-4" >
-                    Contacts
-                </Link>
+                {token &&
+                    <>
+                        <Link onClick={() => event.preventDefault()}
+                            to="/groups"
+                            className="btn btn-outline-light btn-lg border-2 fw-bold fs-4" >
+                            Groups
+                        </Link>
+                        <Link onClick={() => event.preventDefault()}
+                            to="/contacts"
+                            className="btn btn-outline-light btn-lg border-2 fw-bold fs-4" >
+                            Contacts
+                        </Link>
+                    </>
+                }
             </ButtonGroup>
         </Navbar>
     )

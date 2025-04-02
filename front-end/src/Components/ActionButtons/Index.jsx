@@ -26,7 +26,7 @@ export function CreateContactButton() {
     }
 
     function submit() {
-        post(contact);
+        post(contact, "contact");
         openCloseModal();
         event.preventDefault();
     }
@@ -93,7 +93,7 @@ export function EditContactButton(props) {
     }
 
     function submit() {
-        put(contact);
+        put(contact, "contact");
         openCloseModal();
         event.preventDefault();
     }

@@ -12,12 +12,12 @@ import "./Styles.css";
 function App() {
 
   return (
-    <ContextProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ContextProvider>
         <CustomNavbar />
         <MainRoutes />
-      </BrowserRouter>
-    </ContextProvider>
+      </ContextProvider>
+    </BrowserRouter>
   );
 }
 
