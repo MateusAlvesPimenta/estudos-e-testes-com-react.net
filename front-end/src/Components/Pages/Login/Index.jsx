@@ -8,16 +8,20 @@ export function Login() {
 
     const { post } = useContext(Context);
     const [user, setUser] = useState({});
+    const [invalid, setInvalid] = useState(false);
     const navigate = useNavigate();
 
     function handleChange(e) {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value });
     }
-    function submit() {
+    async function submit() {
         event.preventDefault();
-        post(user, "login");
-        navigate("/contacts");
+        let status = await post(user, "login");
+        if (status === 200) {
+            return navigate("/contacts");
+        }
+        setInvalid(true);
     }
 
     return (
@@ -32,11 +36,13 @@ export function Login() {
                     onChange={handleChange}
                     value={user && user.email}
                     required />
+                
                 <Label for="password">Password*</Label>
                 <Input
                     type="password"
                     id="password"
                     name="password"
+                    invalid={invalid}
                     onChange={handleChange}
                     value={user && user.password}
                     required />

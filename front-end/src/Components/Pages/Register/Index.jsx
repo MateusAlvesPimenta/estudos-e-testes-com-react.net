@@ -19,15 +19,14 @@ export function Register() {
             return alert("Unmatching password");
         }
         let status = await post(user, "register");
-        console.log(status);
-        if (status == 200) {
+        if (status === 200) {
             return navigate("/");
         }
-        alert("Invalid register")
+        alert("Invalid register");
     }
     return (
         <Container className="bg-light d-flex flex-column">
-            <Form onSubmit={submit} className="authentication">
+            <Form onInvalid={e => console.log(e)} onSubmit={submit} className="authentication">
                 <h1>Register</h1>
                 <Label for="email">Email*</Label>
                 <Input
@@ -36,15 +35,17 @@ export function Register() {
                     name="email"
                     onChange={handleChange}
                     required />
+                
                 <Label for="password">Password*</Label>
                 <Input
-                    type=""
+                    type="password"
                     id="password"
                     name="password"
                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
                     title="Deve conter pelo menos uma letra maiúscula, uma minúscula, \ um número e um caractere especial."
                     onChange={handleChange}
                     required />
+                
                 <Label for="confirmPassword">Confirm password*</Label>
                 <Input
                     type="password"

@@ -8,9 +8,7 @@ import {
 import {
     getGroups, getGroupsByName,
     postGroup, putGroup, deleteGroup,
-    getGroupById,
-    removeContact,
-    addContact
+    getGroupById, removeContact, addContact
 } from "../Services/GroupsServices";
 import { AuthenticateUser, RegisterUser } from "../Services/AccountServices";
 
@@ -86,8 +84,12 @@ export function ContextProvider(props) {
         }
         else if (entityType === "login") {
             let response = await AuthenticateUser(entity);
-            setToken(response.data.token);
-            sessionStorage.setItem("token", response.data.token);
+            if (response.status === 200) {
+                setToken(response.data.token);
+                sessionStorage.setItem("token", response.data.token);
+                setUpdateData(true);
+            }
+            return response.status;
         }
         else {
             let status = await RegisterUser(entity);
@@ -149,7 +151,7 @@ export function ContextProvider(props) {
 
 
     useMemo(() => {
-        if (sessionStorage.getItem("token")) {
+        if (token) {
             if (groupDetails.id != undefined) {
                 getById(groupDetails.id);
             }
@@ -159,13 +161,11 @@ export function ContextProvider(props) {
     }, [updateGroupDetails]);
 
     useMemo(() => {
-        if (sessionStorage.getItem("token")) {
+        if (token) {
             get("contact");
             get("group");
             setUpdateData(false);
-            console.log(true);
         }
-        console.log(false);
     }, [updateData]);
 
     return (
